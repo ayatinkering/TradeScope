@@ -81,5 +81,5 @@ npm ci
 npm run dev
 ```
 
-Open [localhost:3000](http://localhost:3000).
+Open [localhost:3000](http://localhost:3000)
 
