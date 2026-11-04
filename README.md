@@ -83,6 +83,3 @@ npm run dev
 
 Open [localhost:3000](http://localhost:3000).
 
-## Attribution
-
-Based on [CoinPulse by JavaScript Mastery](https://github.com/adrianhajdin/coinpulse). TradeScope adds bounded stream state, batched publication, reconnect logic, historical/live candle reconciliation, and a reproducible replay benchmark.
