@@ -1,4 +1,4 @@
-# 📈 TradeScope
+# TradeScope
 
 **Real-time crypto market data terminal**
 
@@ -6,7 +6,7 @@ TradeScope combines cached market snapshots with live CoinGecko price, trade, an
 
 `TypeScript` · `Next.js 16` · `React 19` · `CoinGecko Pro` · `WebSockets` · `Lightweight Charts`
 
-## ⚡ Features
+## Features
 
 | Capability | Implementation |
 | --- | --- |
@@ -17,7 +17,7 @@ TradeScope combines cached market snapshots with live CoinGecko price, trade, an
 | Historical charts | Seven historical ranges and two live candle intervals (1 s and 1 min) |
 | REST caching | 60-second default revalidation and 300 seconds for trending data |
 
-## 🧭 Architecture
+## Architecture
 
 ```mermaid
 flowchart TD
@@ -32,7 +32,7 @@ flowchart TD
     MERGE --> CHART["Candlestick chart"]
 ```
 
-## 🧪 Replay benchmark
+## Replay benchmark
 
 | Run | Synthetic events | Events/s | p95 per 1,000 events |
 | --- | ---: | ---: | ---: |
@@ -46,7 +46,7 @@ Median throughput was **3.35 million events/s**. The Node.js replay times JSON d
 npm run benchmark:stream
 ```
 
-## 🗂️ Folder structure
+## Folder structure
 
 ```text
 TradeScope/
@@ -63,7 +63,7 @@ TradeScope/
 └── type.d.ts            # Shared market data types
 ```
 
-## 🚀 Run locally
+## Run locally
 
 Use Node.js 22.13 or newer. Create `.env.local` and fill in the CoinGecko settings.
 
@@ -83,6 +83,6 @@ npm run dev
 
 Open [localhost:3000](http://localhost:3000).
 
-## 🙌 Attribution
+## Attribution
 
 Based on [CoinPulse by JavaScript Mastery](https://github.com/adrianhajdin/coinpulse). TradeScope adds bounded stream state, batched publication, reconnect logic, historical/live candle reconciliation, and a reproducible replay benchmark.
