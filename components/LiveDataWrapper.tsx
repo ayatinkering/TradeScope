@@ -8,9 +8,9 @@ import { formatCurrency, timeAgo } from '@/lib/utils';
 import { useState } from 'react';
 import CoinHeader from '@/components/CoinHeader';
 
-const LiveDataWrapper = ({ children, coinId, poolId, coin, coinOHLCData }: LiveDataProps) => {
+const LiveDataWrapper = ({ coinId, poolId, coin, coinOHLCData }: LiveDataProps) => {
   const [liveInterval, setLiveInterval] = useState<'1s' | '1m'>('1s');
-  const { trades, ohlcv, price } = useCoinGeckoWebSocket({ coinId, poolId, liveInterval });
+  const { trades, candles, price, isConnected } = useCoinGeckoWebSocket({ coinId, poolId, liveInterval });
 
   const tradeColumns: DataTableColumn<Trade>[] = [
     {
@@ -62,13 +62,14 @@ const LiveDataWrapper = ({ children, coinId, poolId, coin, coinOHLCData }: LiveD
         <CandlestickChart
           coinId={coinId}
           data={coinOHLCData}
-          liveOhlcv={ohlcv}
+          liveCandles={candles}
           mode="live"
           initialPeriod="daily"
           liveInterval={liveInterval}
           setLiveInterval={setLiveInterval}
         >
           <h4>Trend Overview</h4>
+          <p role="status">{isConnected ? "Stream connected" : "Stream offline"}</p>
         </CandlestickChart>
       </div>
 
@@ -80,7 +81,7 @@ const LiveDataWrapper = ({ children, coinId, poolId, coin, coinOHLCData }: LiveD
 
           <DataTable
             columns={tradeColumns}
-            data={trades}
+            data={trades.slice(0, 20)}
             rowKey={(_, index) => index}
             tableClassName="trades-table"
           />

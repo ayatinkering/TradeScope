@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "benchmark:stream": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/benchmark-market-stream.mjs"
   },
   "dependencies": {
     "@radix-ui/react-select": "^2.2.6",
